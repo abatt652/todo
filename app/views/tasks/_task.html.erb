@@ -1,0 +1,20 @@
+    <tr>
+    	<td><%= task.content %></td>
+    	<td><%= task.state %></td>
+    	<td><%= link_to 'Show', task %></td>
+    	<td><%= link_to 'Edit', edit_task_path(task) %></td>
+    	<td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    		<% if task.state == "on_progress " %>
+    	
+    	
+    	<td><%= link_to 'Mark as To Do ', change_task_path(task, state: "to_do"), method: :put %></td>
+    	<td><%= link_to 'Mark as Accomplished ', change_task_path(task, state: "accomplished"), method: :put %></td>
+    	<% else %>
+
+    	<td><%= link_to 'Mark as On Progress ', change_task_path(task, state: "on_progress"), method: :put %></td>
+
+    	<% end %>
+
+
+
+	    </tr>

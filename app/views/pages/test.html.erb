@@ -4,16 +4,7 @@
 		<h1 class="text-center">To do</h1>
 			<div class="panel panel-info">	
 				<div class="panel-heading">My Todo</div>
-
-
-				<% @to_do.each do |task| %>
-      <tr>
-        <td><%= task.content %></td>
-        <td><%= task.state %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+				<div class="panel-body">Need to update this</div>
 				<div class="panel-footer text-center">doing</div>
 			</div>
 	</div>

@@ -1,20 +1,21 @@
-    <tr>
-    	<td><%= task.content %></td>
-    	<td><%= task.state %></td>
-    	<td><%= link_to 'Show', task %></td>
-    	<td><%= link_to 'Edit', edit_task_path(task) %></td>
-    	<td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    		<% if task.state == "on_progress " %>
-    	
-    	
-    	<td><%= link_to 'Mark as To Do ', change_task_path(task, state: "to_do"), method: :put %></td>
-    	<td><%= link_to 'Mark as Accomplished ', change_task_path(task, state: "accomplished"), method: :put %></td>
-    	<% else %>
+<div class="panel panel-info">	
+	<div class="panel-heading">
+	<%= link_to edit_task_path(task) do %>
+		Created <%= time_ago_in_words(task.created_at) %> ago 
+	<% end %>
 
-    	<td><%= link_to 'Mark as On Progress ', change_task_path(task, state: "on_progress"), method: :put %></td>
-
-    	<% end %>
-
-
-
-	    </tr>
+	<%= link_to 'X', task_path(task), method: :delete, data: {confirm: "Are you sure?"}, class: 'pull-right' %>
+	</div>
+	<div class="panel-body"><%= raw(task.content_html) %></div>
+	<div class="panel-body"><%= task.content %></div>
+	<div class="panel-footer text-center">
+	<% if task.state == 'on_progress' %> 
+	  <%= link_to "<i class ='fa fa-arrow-left'></i>".html_safe, change_task_path(task, state: "to_do"), method: :put  %>
+	  <%= link_to "<i class ='fa fa-arrow-right'></i>".html_safe, change_task_path(task, state: "accomplished"), method: :put  %>
+	<% elsif task.state == 'accomplished' %>
+	  <%= link_to "<i class ='fa fa-arrow-left'></i>".html_safe, change_task_path(task, state: "on_progress"), method: :put  %>
+	<% else %>
+	  <%= link_to "<i class ='fa fa-arrow-right'></i>".html_safe, change_task_path(task, state: "on_progress"), method: :put  %>
+	<% end %>   
+	</div>
+</div>

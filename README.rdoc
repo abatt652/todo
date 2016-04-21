@@ -1,9 +1,19 @@
 == README
 
-THIS IS A DEMO SITE FOR TO DO APP.
+ToDo
 
-CREATED BY THE FAMOUS DEVELOPER AIDAN AND SHUVO.
+By Shuvo Saha and Aidan Battad
 
-LOL
+https://operatingsystemtodo.herokuapp.com
+
+Version 1.0
+
+This application allows users to create a simple itinerary by adding tasks to a list. 
+
+Once one has created a time-stamped task, one can mark the task as one of the three separate states: ToDo, Doing, or Done.
+
+The application is programmed via Ruby on Rails. 
+
+The database used is SQLite3 while website is stored in Herokuapp.
 
 <tt>rake doc:app</tt>.
